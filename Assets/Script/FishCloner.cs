@@ -40,7 +40,6 @@ public class FishCloner : MonoBehaviour
             GameObject Fishclone = Instantiate(FishA);
             Fishclone.transform.position = new Vector3(-20, Random.Range(MinY, MaxY), 0);
             Fishclone.GetComponent<FoodController>().Speed = Random.Range(MinSpeed, MaxSpeed);
-            if (position == (20,))
         }
     }
 }

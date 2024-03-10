@@ -17,6 +17,10 @@ public class FoodController : MonoBehaviour
     void Update()
     {
         transform.Translate(Speed * Vector3.right * Time.deltaTime);
+        if (transform.position.x > (15))
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter(Collider collision)
