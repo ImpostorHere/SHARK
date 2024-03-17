@@ -6,6 +6,7 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+
     public GameState CurrentGameState;
     public int Score;
     public TextMeshProUGUI ScoreText;
@@ -14,7 +15,15 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI StartText;
     private void Awake()
     {
-        Instance = this;
+        if(Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
+        
         FoodController.OnEaten += OnEatenHandler;
     }
     void OnEatenHandler()

@@ -6,6 +6,7 @@ using System;
 public class FoodController : MonoBehaviour
 {
     public static event Action OnEaten;
+
     public float Speed;
     // Start is called before the first frame update
     void Start()
