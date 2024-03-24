@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour
     }
     IEnumerator DelayToGameplayCo()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(2f);
         UpdateGameState(GameState.GamePlay);
     }
 }

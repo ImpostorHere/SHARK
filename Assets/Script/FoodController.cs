@@ -17,8 +17,10 @@ public class FoodController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Speed * Vector3.right * Time.deltaTime);
-        if (transform.position.x > (15))
+        transform.Translate(Speed * Vector3.left * Time.deltaTime);
+
+
+        if (transform.position.x > (20))
         {
             Destroy(gameObject);
         }
