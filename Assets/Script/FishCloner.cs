@@ -12,8 +12,7 @@ public class FishCloner : MonoBehaviour
     public float MinSpeed;
     public float MaxSpeed;
 
-    [Header("FishVariation")]
-    public GameObject FishA;
+    public GameObject[] Fish;
     #endregion
 
     // Start is called before the first frame update
@@ -49,9 +48,11 @@ public class FishCloner : MonoBehaviour
     {
         while (GameManager.Instance.CurrentGameState == GameState.GamePlay)
         {
-            yield return new WaitForSeconds(Random.Range(0.125f, 1));           
+            yield return new WaitForSeconds(Random.Range(0.125f, 1));
 
-            GameObject Fishclone = Instantiate(FishA);
+            int index = Random.Range(0, 4);
+
+            GameObject Fishclone = Instantiate(Fish[index]);
             Fishclone.transform.position = new Vector3(-20, Random.Range(MinY, MaxY), 0);
             Fishclone.GetComponent<FoodController>().Speed = Random.Range(MinSpeed, MaxSpeed);
         }
