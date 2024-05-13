@@ -57,12 +57,12 @@ public class PlayerController : MonoBehaviour
         if(isFacingRight==true)
         {
             transform.eulerAngles = new Vector3(0, 0, 0);
-            transform.position += new Vector3(-speed * 2 * Time.deltaTime, 0, 0);
+            transform.position += new Vector3(-speed * Time.deltaTime, 0, 0);
         }
         else
         {
             transform.eulerAngles = new Vector3(0, 180, 0);
-            transform.position += new Vector3(speed * 2 * Time.deltaTime, 0, 0);
+            transform.position += new Vector3(speed * Time.deltaTime, 0, 0);
         }
     }
 }
