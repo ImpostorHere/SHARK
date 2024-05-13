@@ -12,7 +12,6 @@ public class FishCloner : MonoBehaviour
     public float MinSpeed;
     public float MaxSpeed;
 
-    [Space(10)]
     public GameObject[] Fish;
     #endregion
 
@@ -52,6 +51,7 @@ public class FishCloner : MonoBehaviour
             yield return new WaitForSeconds(Random.Range(0.125f, 1));
 
             int index = Random.Range(0, 4);
+
             GameObject Fishclone = Instantiate(Fish[index]);
             Fishclone.transform.position = new Vector3(-20, Random.Range(MinY, MaxY), 0);
             Fishclone.GetComponent<FoodController>().Speed = Random.Range(MinSpeed, MaxSpeed);
