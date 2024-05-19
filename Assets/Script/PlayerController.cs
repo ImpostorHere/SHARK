@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public FixedJoystick joyman;
     public float speed;
     public bool isFacingRight;
     // Start is called before the first frame update
@@ -17,6 +18,9 @@ public class PlayerController : MonoBehaviour
     {
         if (GameManager.Instance.CurrentGameState != GameState.GamePlay)
             return;
+
+        Vector3 dir = new Vector3(-joyman.Direction.x, joyman.Direction.y, 0);
+        transform.Translate(dir * speed * Time.deltaTime);
 
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
