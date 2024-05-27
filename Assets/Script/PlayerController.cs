@@ -6,12 +6,11 @@ public class PlayerController : MonoBehaviour
 {
     public FixedJoystick joyman;
     public float speed;
-    public bool isFacingRight;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public float rotationSpeed = 1f;
+
+    public GameObject sharkObj;
+
+    Quaternion _targetRot;
 
     // Update is called once per frame
     void Update()
@@ -19,54 +18,20 @@ public class PlayerController : MonoBehaviour
         if (GameManager.Instance.CurrentGameState != GameState.GamePlay)
             return;
 
-        Vector3 dir = new Vector3(-joyman.Direction.x, joyman.Direction.y, 0);
+        Vector3 dir = new Vector3(-joyman.Direction.x, joyman.Direction.y);
         transform.Translate(dir * speed * Time.deltaTime);
 
-        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+        //Jika arah joystick ke kanan
+        if(dir.x > 0)
         {
-            //NaikKeAtas
-            MoveVertical(true);
+            _targetRot = Quaternion.Euler(Vector3.up * 180f);
         }
-        if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+        //Jika arah joystick ke kiri
+        else if(dir.x < 0)
         {
-            //NaikKeBawah
-            MoveVertical(false);
+            _targetRot = Quaternion.Euler(Vector3.zero);
         }
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
-        {
-            //MinggirKeKiri
-            isFacingRight = false;
-            MoveHorisontal();
-        }
-        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
-        {
-            //MinggirKeKanan
-            isFacingRight = true;
-            MoveHorisontal();
-        }
-    }
-    void MoveVertical(bool Upward)
-    {
-        if(Upward==true)
-        {
-            transform.Translate(0, speed * Time.deltaTime, 0);
-        }
-        else 
-        {
-            transform.Translate(0, -speed * Time.deltaTime, 0);
-        }
-    }
-    void MoveHorisontal()
-    {
-        if(isFacingRight==true)
-        {
-            transform.eulerAngles = new Vector3(0, 0, 0);
-            transform.position += new Vector3(-speed * Time.deltaTime, 0, 0);
-        }
-        else
-        {
-            transform.eulerAngles = new Vector3(0, 180, 0);
-            transform.position += new Vector3(speed * Time.deltaTime, 0, 0);
-        }
+
+        sharkObj.transform.rotation = Quaternion.Slerp(sharkObj.transform.rotation, _targetRot, rotationSpeed * Time.deltaTime);
     }
 }
