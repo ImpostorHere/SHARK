@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,10 +10,14 @@ public class GameManager : MonoBehaviour
 
     public GameState CurrentGameState;
     public int Score;
+
+    [Header("Game UI")]
     public TextMeshProUGUI ScoreText;
+    public Slider HpBar;
 
     [Header("Game Start UI")]
     public TextMeshProUGUI StartText;
+
     private void Awake()
     {
         if(Instance != null && Instance != this)
@@ -63,6 +68,16 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         UpdateGameState(GameState.GamePlay);
+    }
+
+    /// <summary>
+    /// Update tampilan HP Bar berdasarkan value dari Player HP
+    /// </summary>
+    /// <param name="currentHp"></param>
+    /// <param name="maxHp"></param>
+    public void UpdateHpBarUI(int currentHp, int maxHp)
+    {
+        HpBar.value = (float)currentHp / (float)maxHp;
     }
 }
 public enum GameState
