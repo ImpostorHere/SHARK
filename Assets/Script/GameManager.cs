@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     [Header("Game UI")]
     public TextMeshProUGUI ScoreText;
     public Slider HpBar;
-
+    public TextMeshProUGUI HpText;
     [Header("Game Start UI")]
     public TextMeshProUGUI StartText;
 
@@ -79,6 +79,7 @@ public class GameManager : MonoBehaviour
     public void UpdateHpBarUI(int currentHp, int maxHp)
     {
         HpBar.value = (float)currentHp / (float)maxHp;
+        HpText.text = currentHp + " / " + maxHp;
     }
 }
 public enum GameState
