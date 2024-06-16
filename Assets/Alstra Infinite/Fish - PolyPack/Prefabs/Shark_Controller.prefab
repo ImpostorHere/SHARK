@@ -64,8 +64,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   joyman: {fileID: 0}
-  speed: 5
-  rotationSpeed: 12.5
+  speed: 10
+  rotationSpeed: 50
   sharkObj: {fileID: 4383996184487182089}
 --- !u!64 &4383996184472598205
 MeshCollider:
