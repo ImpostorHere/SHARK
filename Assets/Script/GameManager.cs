@@ -57,6 +57,7 @@ public class GameManager : MonoBehaviour
         {
             StartText.gameObject.SetActive(false);
             FishCloner.Instance.CloneFish();
+            BombCloner.Instance.CloneBomb();
         }
     }
     IEnumerator DelayToGameplayCo()
