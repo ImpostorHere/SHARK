@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.17636523, g: 0.22073871, b: 0.30305964, a: 1}
+  m_IndirectSpecularColor: {r: 0.17636497, g: 0.22073832, b: 0.3030591, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1429,6 +1429,7 @@ MonoBehaviour:
   Score: 0
   ScoreText: {fileID: 316650159}
   HpBar: {fileID: 247872510}
+  HpText: {fileID: 848472299}
   StartText: {fileID: 736692479}
 --- !u!4 &1671601857
 Transform:
@@ -1461,6 +1462,8 @@ MonoBehaviour:
   MaxY: -4.5
   MinSpeed: 5
   MaxSpeed: 10
+  MinDelay: 0
+  MaxDelay: 0
   Fish:
   - {fileID: 1320648055576384971, guid: d3ebb8c3b20acf14dbdc7afebaefbb70, type: 3}
   - {fileID: 8644097238324911813, guid: d9801c75fa3b27b4fa7c9100af24c757, type: 3}
