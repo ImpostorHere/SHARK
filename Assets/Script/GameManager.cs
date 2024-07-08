@@ -61,8 +61,8 @@ public class GameManager : MonoBehaviour
         else if (CurrentGameState == GameState.GamePlay)
         {
             StartText.gameObject.SetActive(false);
-            FishCloner.Instance.CloneFish();
-            BombCloner.Instance.CloneBomb();
+            FishCloner.Instance.CloneObject();
+            BombCloner.Instance.CloneObject();
         }
     }
     IEnumerator DelayToGameplayCo()
