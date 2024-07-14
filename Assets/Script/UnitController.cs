@@ -7,7 +7,8 @@ public class UnitController : MonoBehaviour
 {
     public float Speed;
 
-    public static event Action OnEaten;
+    public static Action OnEaten;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +27,7 @@ public class UnitController : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider collision)
+    protected virtual void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.tag == "Mulut")
         {
