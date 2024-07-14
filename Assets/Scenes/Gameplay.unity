@@ -1465,7 +1465,7 @@ MonoBehaviour:
   MaxSpeed: 10
   MinDelay: 0.5
   MaxDelay: 2
-  Fish:
+  ObjectToClone:
   - {fileID: 1320648055576384971, guid: d3ebb8c3b20acf14dbdc7afebaefbb70, type: 3}
   - {fileID: 8644097238324911813, guid: d9801c75fa3b27b4fa7c9100af24c757, type: 3}
   - {fileID: 1003724933788569789, guid: a919ddecbc837bf4aabe94efc9e60240, type: 3}
@@ -1488,7 +1488,7 @@ MonoBehaviour:
   MaxSpeed: -7.5
   MinDelay: 1.25
   MaxDelay: 2
-  Bomb:
+  ObjectToClone:
   - {fileID: 6140285217348896096, guid: 4fbb7fcad5d8aaa40956ebc18935f2dc, type: 3}
 --- !u!1 &1951571134
 GameObject:

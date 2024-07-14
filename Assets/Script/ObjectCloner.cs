@@ -28,9 +28,9 @@ public class ObjectCloner : MonoBehaviour
 
             int index = Random.Range(0, ObjectToClone.Length);
 
-            GameObject Bombclone = Instantiate(ObjectToClone[index]);
-            Bombclone.transform.position = new Vector3(-20, Random.Range(MinY, MaxY), 0);
-            Bombclone.GetComponent<FoodController>().Speed = Random.Range(MinSpeed, MaxSpeed);
+            GameObject Clone = Instantiate(ObjectToClone[index]);
+            Clone.transform.position = new Vector3(-20, Random.Range(MinY, MaxY), 0);
+            Clone.GetComponent<UnitController>().Speed = Random.Range(MinSpeed, MaxSpeed);
         }
     }
 }
