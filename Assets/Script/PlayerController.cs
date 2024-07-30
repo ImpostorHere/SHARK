@@ -46,11 +46,6 @@ public class PlayerController : MonoBehaviour
 
         sharkObj.transform.rotation = 
             Quaternion.Slerp(sharkObj.transform.rotation, _targetRot, rotationSpeed * Time.deltaTime);
-
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            DecreaseHP(10);
-        }
     }
 
     public void DecreaseHP(int damage)
