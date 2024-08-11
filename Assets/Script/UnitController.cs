@@ -10,7 +10,7 @@ public class UnitController : MonoBehaviour
     public static Action OnEaten;
 
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
 
     }
@@ -18,8 +18,8 @@ public class UnitController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Speed * Vector3.left * Time.deltaTime);
-
+        //transform.Translate(Speed * Vector3.left * Time.deltaTime);
+        transform.position += Speed * Vector3.left * Time.deltaTime;
 
         if (transform.position.x > (20))
         {
@@ -31,6 +31,7 @@ public class UnitController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Mulut")
         {
+            collision.transform.parent.parent.GetComponent<PlayerController>().DecreaseHP(10);
             OnEaten?.Invoke();
             Destroy(gameObject);
         }

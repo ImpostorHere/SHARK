@@ -64,11 +64,21 @@ public class GameManager : MonoBehaviour
             FishCloner.Instance.CloneObject();
             BombCloner.Instance.CloneObject();
         }
+        else if (CurrentGameState == GameState.GameEnd)
+        {
+            StartText.gameObject.SetActive(false);
+            StartCoroutine(StopForResultCo());
+        }
     }
     IEnumerator DelayToGameplayCo()
     {
         yield return new WaitForSeconds(2f);
         UpdateGameState(GameState.GamePlay);
+    }
+    IEnumerator StopForResultCo()
+    {
+        yield return new WaitForSeconds(5f);
+        UpdateGameState(GameState.Result);
     }
 
     /// <summary>

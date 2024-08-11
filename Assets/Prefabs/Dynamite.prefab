@@ -47,6 +47,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 0
+  RandomX: 0
+  RandomY: 0
+  RandomZ: 0
 --- !u!135 &2908094509537060863
 SphereCollider:
   m_ObjectHideFlags: 0
