@@ -1163,7 +1163,7 @@ Transform:
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 3, z: 16}
+  m_LocalPosition: {x: 0, y: 0, z: 16}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1477,8 +1477,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57808a3c2516d5d499120da29d7797e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MinY: 11
-  MaxY: -4.5
+  MinY: -5.5
+  MaxY: 7.5
   MinSpeed: -5
   MaxSpeed: -10
   MinDelay: 0.5
@@ -1500,8 +1500,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59288d0f8a35fd34881157a14477d910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MinY: 11
-  MaxY: -4.5
+  MinY: -5.5
+  MaxY: 7.5
   MinSpeed: -7.5
   MaxSpeed: -7.5
   MinDelay: 1.25
@@ -1637,7 +1637,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4383996184472598202, guid: 3f7901c5a76367b4c9ba55986caa4894, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4383996184472598202, guid: 3f7901c5a76367b4c9ba55986caa4894, type: 3}
       propertyPath: m_LocalPosition.z
