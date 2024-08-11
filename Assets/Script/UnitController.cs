@@ -31,7 +31,6 @@ public class UnitController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Mulut")
         {
-            collision.transform.parent.parent.GetComponent<PlayerController>().DecreaseHP(10);
             OnEaten?.Invoke();
             Destroy(gameObject);
         }

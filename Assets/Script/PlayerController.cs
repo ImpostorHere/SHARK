@@ -12,6 +12,12 @@ public class PlayerController : MonoBehaviour
 
     public GameObject sharkObj;
 
+    public float clampMinX = -15f;
+    public float clampMaxX = 15;
+
+    public float clampMinY = -4.5f;
+    public float clampMaxY = 11f;
+
     /// <summary>
     /// Digunakan untuk menampilkan nilai HP pada karakter saat ini
     /// </summary>
@@ -46,6 +52,16 @@ public class PlayerController : MonoBehaviour
 
         sharkObj.transform.rotation = 
             Quaternion.Slerp(sharkObj.transform.rotation, _targetRot, rotationSpeed * Time.deltaTime);
+    }
+
+    private void LateUpdate()
+    {
+        float clampedPosX = Mathf.Clamp(transform.position.x, clampMinX, clampMaxX);
+        float clampedPosY = Mathf.Clamp(transform.position.y, clampMinY, clampMaxY);
+
+        Vector3 clampedPos = new Vector3(clampedPosX, clampedPosY, transform.position.z);
+
+        transform.position = clampedPos;
     }
 
     public void DecreaseHP(int damage)
