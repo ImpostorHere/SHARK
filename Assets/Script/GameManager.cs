@@ -17,7 +17,8 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI HpText;
     [Header("Game Start UI")]
     public TextMeshProUGUI StartText;
-
+    [Header("Game Over UI")]
+    public GameObject LosePanel;
     private void Awake()
     {
         if(Instance != null && Instance != this)
@@ -30,6 +31,7 @@ public class GameManager : MonoBehaviour
         }
         
         FoodController.OnEaten += OnEatenHandler;
+        PlayerController.OnDie += LoseState;
     }
     void OnEatenHandler()
     {
@@ -42,6 +44,7 @@ public class GameManager : MonoBehaviour
         Score = 0;
         ScoreText.text = "Score :" + Score.ToString();
         UpdateGameState(GameState.Start);
+        LosePanel.SetActive(false);
     }
 
     // Update is called once per frame
@@ -66,6 +69,7 @@ public class GameManager : MonoBehaviour
         }
         else if (CurrentGameState == GameState.GameEnd)
         {
+            LosePanel.SetActive(true);
             StartText.gameObject.SetActive(false);
             StartCoroutine(StopForResultCo());
         }
@@ -90,6 +94,10 @@ public class GameManager : MonoBehaviour
     {
         HpBar.value = (float)currentHp / (float)maxHp;
         HpText.text = currentHp + " / " + maxHp;
+    }
+    public void LoseState()
+    {
+        UpdateGameState(GameState.GameEnd);
     }
 }
 public enum GameState

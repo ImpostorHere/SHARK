@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class PlayerController : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class PlayerController : MonoBehaviour
 
     public float clampMinY = -4.5f;
     public float clampMaxY = 11f;
+    public static event Action OnDie;
 
     /// <summary>
     /// Digunakan untuk menampilkan nilai HP pada karakter saat ini
@@ -68,6 +70,8 @@ public class PlayerController : MonoBehaviour
     {
         _currentHp -= damage;
         UpdateUI();
+        if (_currentHp<=0)
+            OnDie?.Invoke();
     }
 
     /// <summary>
