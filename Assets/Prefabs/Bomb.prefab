@@ -134,6 +134,7 @@ MonoBehaviour:
   RandomX: 0
   RandomY: 0
   RandomZ: 0
+  particle: {fileID: 8473568434833712690}
 --- !u!65 &273991147050873397
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -51,6 +51,7 @@ MonoBehaviour:
   RandomX: 0
   RandomY: 0
   RandomZ: 0
+  particle: {fileID: 1166943111853364228}
 --- !u!135 &2908094509537060863
 SphereCollider:
   m_ObjectHideFlags: 0
