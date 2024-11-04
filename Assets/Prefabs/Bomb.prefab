@@ -131,6 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 0
+  DestroyedParticle: {fileID: 5746819252157365063, guid: 5bc824f746457a04c91c24c2f34ea11f, type: 3}
   RandomX: 0
   RandomY: 0
   RandomZ: 0

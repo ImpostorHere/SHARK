@@ -130,6 +130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 0
+  DestroyedParticle: {fileID: 3382124814143421691, guid: 27043d6297a854e46808b50b010eeaba, type: 3}
 --- !u!1001 &5191749477352263090
 PrefabInstance:
   m_ObjectHideFlags: 0

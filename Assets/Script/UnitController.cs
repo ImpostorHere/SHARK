@@ -9,6 +9,7 @@ public class UnitController : MonoBehaviour
 
     public static Action OnEaten;
 
+    public ParticleSystem DestroyedParticle;
     // Start is called before the first frame update
     protected virtual void Start()
     {
@@ -32,6 +33,8 @@ public class UnitController : MonoBehaviour
         if (collision.gameObject.tag == "Mulut")
         {
             OnEaten?.Invoke();
+            GameObject particleClone = Instantiate(DestroyedParticle.gameObject);
+            particleClone.transform.position = transform.position;
             Destroy(gameObject);
         }
     }

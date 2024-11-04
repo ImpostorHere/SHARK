@@ -23,6 +23,8 @@ public class BombController : UnitController
         if (collision.gameObject.tag == "Player")
         {
             collision.transform.parent.parent.GetComponent<PlayerController>().DecreaseHP(10);
+            GameObject particleClone = Instantiate(DestroyedParticle.gameObject);
+            particleClone.transform.position = transform.position;
             Destroy(gameObject);
         }
     }
