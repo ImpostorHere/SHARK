@@ -15,10 +15,15 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI ScoreText;
     public Slider HpBar;
     public TextMeshProUGUI HpText;
+
     [Header("Game Start UI")]
     public TextMeshProUGUI StartText;
+
     [Header("Game Over UI")]
     public GameObject LosePanel;
+    public TextMeshProUGUI FinalScoreText;
+    public string LoseMessage = "Your score is : ";
+
     private void Awake()
     {
         if(Instance != null && Instance != this)
@@ -70,7 +75,12 @@ public class GameManager : MonoBehaviour
         else if (CurrentGameState == GameState.GameEnd)
         {
             LosePanel.SetActive(true);
+
+            FinalScoreText.text = LoseMessage + Score.ToString();
+
             StartText.gameObject.SetActive(false);
+            ScoreText.gameObject.SetActive(false);
+
             StartCoroutine(StopForResultCo());
         }
     }
