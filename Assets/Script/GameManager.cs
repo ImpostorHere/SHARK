@@ -1,8 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+
+using System;
 using UnityEngine;
+
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
+using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
@@ -23,6 +29,8 @@ public class GameManager : MonoBehaviour
     public GameObject LosePanel;
     public TextMeshProUGUI FinalScoreText;
     public string LoseMessage = "Your score is : ";
+
+    //StartScreenManager
 
     private void Awake()
     {
@@ -108,6 +116,16 @@ public class GameManager : MonoBehaviour
     public void LoseState()
     {
         UpdateGameState(GameState.GameEnd);
+    }
+
+    public void OnClick_Menu()
+    {
+        SceneManager.LoadScene("Start_Screen");
+    }
+
+    public void OnClick_Retry()
+    {
+        SceneManager.LoadScene("Gameplay");
     }
 }
 public enum GameState
