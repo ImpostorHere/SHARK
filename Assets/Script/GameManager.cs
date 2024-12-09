@@ -1,9 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+
+using System;
 using UnityEngine;
+
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+
+using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
@@ -25,9 +30,11 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI FinalScoreText;
     public string LoseMessage = "Your score is : ";
 
+    //StartScreenManager
+
     private void Awake()
     {
-        if (Instance != null && Instance != this)
+        if(Instance != null && Instance != this)
         {
             Destroy(gameObject);
         }
@@ -35,7 +42,7 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
         }
-
+        
         FoodController.OnEaten += OnEatenHandler;
         PlayerController.OnDie += LoseState;
     }
@@ -56,7 +63,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
     }
     void UpdateGameState(GameState newState)
     {
@@ -110,6 +117,7 @@ public class GameManager : MonoBehaviour
     {
         UpdateGameState(GameState.GameEnd);
     }
+
     public void OnClick_Menu()
     {
         SceneManager.LoadScene("Start_Screen");
@@ -120,8 +128,7 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("Gameplay");
     }
 }
-
 public enum GameState
 {
-    none, Start, GamePlay, GameEnd, Result
+    none,Start,GamePlay,GameEnd,Result
 }
