@@ -22,6 +22,7 @@ public class BombController : UnitController
     {
         if (collision.gameObject.tag == "Player")
         {
+            AudioManager.Instance.PlayAudioOneShot(0);
             collision.transform.parent.parent.GetComponent<PlayerController>().DecreaseHP(10);
             GameObject particleClone = Instantiate(DestroyedParticle.gameObject);
             particleClone.transform.position = transform.position;
