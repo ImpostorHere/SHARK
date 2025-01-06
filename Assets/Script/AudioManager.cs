@@ -18,4 +18,9 @@ public class AudioManager : MonoBehaviour
         Instance = this;
     }
 
+    public void PlayRandomAudio(List<int> indexes)
+    {
+        int selectedIndex = Random.Range(0, indexes.Count);
+        PlayAudioOneShot(indexes[selectedIndex]);
+    }
 }

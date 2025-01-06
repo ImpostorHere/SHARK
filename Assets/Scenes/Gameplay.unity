@@ -893,7 +893,7 @@ GameObject:
   - component: {fileID: 498894634}
   - component: {fileID: 498894633}
   m_Layer: 0
-  m_Name: AudioManagear
+  m_Name: AudioManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -912,8 +912,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cliplist:
-  - {fileID: 8300000, guid: 91eaad7b238db0942ae68238ee40e812, type: 3}
+  - {fileID: 8300000, guid: d69a1292906bf7647a1a4e0ab7dcbceb, type: 3}
   - {fileID: 8300000, guid: 7046523c1987d1a4480a5b943ba971cc, type: 3}
+  - {fileID: 8300000, guid: 46e580446d5ba3b4dbb1d19efa434d71, type: 3}
+  - {fileID: 8300000, guid: 0dd2372cc9bddbe47a627b43c40d17d3, type: 3}
+  - {fileID: 8300000, guid: 811bc9e2ee9595e45bdc4fe9bd257ba8, type: 3}
   audioSource: {fileID: 963194230}
 --- !u!4 &498894634
 Transform:

@@ -30,12 +30,6 @@ public class UnitController : MonoBehaviour
 
     protected virtual void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.tag == "Mulut")
-        {
-            OnEaten?.Invoke();
-            GameObject particleClone = Instantiate(DestroyedParticle.gameObject);
-            particleClone.transform.position = transform.position;
-            Destroy(gameObject);
-        }
+        
     }
 }
