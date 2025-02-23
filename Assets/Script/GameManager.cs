@@ -46,6 +46,13 @@ public class GameManager : MonoBehaviour
         FoodController.OnEaten += OnEatenHandler;
         PlayerController.OnDie += LoseState;
     }
+
+    private void OnDestroy()
+    {
+        FoodController.OnEaten -= OnEatenHandler;
+        PlayerController.OnDie -= LoseState;
+    }
+
     void OnEatenHandler()
     {
         Score++;
