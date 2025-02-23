@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro.Examples;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
@@ -16,6 +17,7 @@ public class AudioManager : MonoBehaviour
     public void Awake()
     {
         Instance = this;
+        
     }
 
     public void PlayRandomAudio(List<int> indexes)
