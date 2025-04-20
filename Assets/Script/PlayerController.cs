@@ -95,7 +95,7 @@ public class PlayerController : MonoBehaviour
     {
         _currentHp -= damage;
         UpdateUI();
-        if (_currentHp<=0)
+        if (_currentHp <= 0)
             OnDie?.Invoke();
     }
 
