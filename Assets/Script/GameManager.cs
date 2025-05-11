@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     public GameObject LosePanel;
     public TextMeshProUGUI FinalScoreText;
     public string LoseMessage = "Your score is : ";
+    public const string HI_SCORE_KEY = "Highscore";
 
     //StartScreenManager
 
@@ -45,6 +46,11 @@ public class GameManager : MonoBehaviour
         
         FoodController.OnEaten += OnEatenHandler;
         PlayerController.OnDie += LoseState;
+
+        if(PlayerPrefs.HasKey(HI_SCORE_KEY) == false)
+        {
+            PlayerPrefs.SetInt(HI_SCORE_KEY, 0);
+        }
     }
 
     private void OnDestroy()
@@ -57,6 +63,10 @@ public class GameManager : MonoBehaviour
     {
         Score++;
         ScoreText.text = "Score :" + Score.ToString();
+        if(Score > PlayerPrefs.GetInt(HI_SCORE_KEY))
+        {
+            PlayerPrefs.SetInt(HI_SCORE_KEY, Score);
+        }
     }
     // Start is called before the first frame update
     void Start()
