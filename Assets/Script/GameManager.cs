@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Game UI")]
     public TextMeshProUGUI ScoreText;
+    public TextMeshProUGUI HiScoreText;
     public Slider HpBar;
     public TextMeshProUGUI HpText;
 
@@ -30,6 +31,17 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI FinalScoreText;
     public string LoseMessage = "Your score is : ";
     public const string HI_SCORE_KEY = "Highscore";
+    public int HighScore
+    {
+        get
+        {
+            return PlayerPrefs.GetInt(HI_SCORE_KEY);
+        }
+        set
+        {
+            PlayerPrefs.SetInt(HI_SCORE_KEY, value);
+        }
+    }
 
     //StartScreenManager
 
@@ -49,7 +61,7 @@ public class GameManager : MonoBehaviour
 
         if(PlayerPrefs.HasKey(HI_SCORE_KEY) == false)
         {
-            PlayerPrefs.SetInt(HI_SCORE_KEY, 0);
+            HighScore = 0;
         }
     }
 
@@ -63,16 +75,18 @@ public class GameManager : MonoBehaviour
     {
         Score++;
         ScoreText.text = "Score :" + Score.ToString();
-        if(Score > PlayerPrefs.GetInt(HI_SCORE_KEY))
+        if(Score > HighScore)
         {
-            PlayerPrefs.SetInt(HI_SCORE_KEY, Score);
+            HighScore = Score;
         }
+        HiScoreText.text = "Highscore :" + HighScore.ToString();
     }
     // Start is called before the first frame update
     void Start()
     {
         Score = 0;
         ScoreText.text = "Score :" + Score.ToString();
+        HiScoreText.text = "Highscore:" + HighScore.ToString();
         UpdateGameState(GameState.Start);
         LosePanel.SetActive(false);
     }
